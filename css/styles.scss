@@ -148,13 +148,12 @@ body {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 40px 100% 40px;
     section {
-         box-shadow: 0 0 40px rgba(0,0,0,.1) inset;
+        box-shadow: 0 0 40px rgba(0, 0, 0, .1) inset;
         color: #fbebaf;
         font-size: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
 
     .header {
@@ -165,9 +164,13 @@ body {
         }
     }
     .menu {
-        grid-column: span 4;
-        background-color: #fd706d;
+        grid-column: span 4; // background-color: #fd706d;
         overflow: hidden;
+        box-shadow: none;
+        li {
+            background-color: #fd706d;
+            margin: 10px 0;
+        }
         @include xs-only {
             grid-row: 1;
             grid-column: span 6;
@@ -176,6 +179,18 @@ body {
     .content {
         grid-column: span 8;
         background-color: #fecb65;
+            // background-image: url("/images/elephants.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: justify;
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+
         @include xs-only {
             grid-column: span 12;
         }
@@ -204,50 +219,57 @@ body {
         width: 100%;
 
         a {
-            // text-align: center;
+            text-align: center;
             color: #fbebaf;
             span {
                 cursor: pointer;
                 display: inline-block;
                 position: relative;
                 transition: .5s;
-                &:after {
+                letter-spacing: 5px;
+                &:before {
                     font-family: FontAwesome;
                     content: '\f054';
                     position: absolute;
                     opacity: 0;
-                    top: 2px;
-                    right: -20px;
+                    top: 5px;
+                    left: -50px;
                     transition: .5s;
                     font-size: 14px;
+                    letter-spacing: 0px;
                 }
-            }
-            li {
-                padding-left: 10px;
                 &:after {
                     font-family: FontAwesome;
-                    content: '\f054';
+                    content: '\f053';
                     position: absolute;
                     opacity: 0;
-                    top: 2px;
-                    right: -20px;
+                    top: 5px;
+                    right: -55px;
                     transition: .5s;
                     font-size: 14px;
+                    letter-spacing: 0px;
                 }
             }
 
             &:hover {
-                cursor: pointer;
-                text-decoration: none;
                 span {
-                    padding-left: 25px;
+                    letter-spacing: 1px;
+                    &:before {
+                        opacity: 1;
+                        left: -20px;
+                        letter-spacing: 0px;
+                    }
+                    &:after {
+                        letter-spacing: 0px;
+                        opacity: 1;
+                        right: -18px;
+                    }
                 }
                 li {
-        box-shadow: 0 0 40px rgba(0,0,0,.1) inset;
+                    box-shadow: 0 0 40px rgba(0, 0, 0, .1) inset;
                     background-color: #f79896;
                     color: #f9f1d1;
                     transition: 0.5s;
-
                 }
             }
         }
